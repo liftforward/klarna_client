@@ -15,7 +15,7 @@ module Klarna
 
     def place_order(authorization_token, data)
       do_request(:post, "/credit/v1/authorizations/#{authorization_token}/order") do |request|
-        request.body = data.to_json
+        request.body = data.except(:shipping_address, :billing_address).to_json
       end
     end
 
