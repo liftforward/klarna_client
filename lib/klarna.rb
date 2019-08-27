@@ -3,6 +3,7 @@ require "klarna/configuration"
 require "klarna/client"
 require "klarna/response"
 require "klarna/order"
+require "klarna/payment"
 require "klarna/capture"
 require "klarna/credit"
 require "klarna/refund"
@@ -24,6 +25,8 @@ module Klarna
     case type
     when :credit
       Credit.new(configuration)
+    when :payment
+      Payment.new(configuration)
     when :order
       Order.new(configuration)
     when :refund
